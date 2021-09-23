@@ -12,9 +12,9 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-	console.log('READY!')
+	console.log('READY!');
 	client.user.setActivity('Youtube music probably');
-	)};
+	});
 client.on('message', message => {
 	if (!message.content.startsWith(client.config.prefix) || message.author.bot) return;
 	const args = message.content.slice(client.config.prefix.length).split(/ +/);
