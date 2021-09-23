@@ -14,6 +14,8 @@ module.exports = {
 		const permissions = channel.permissionsFor(message.client.user);
 		if (!permissions.has('CONNECT')) return message.channel.send('I cannot connect to your voice channel, make sure I have the proper permissions!');
 		if (!permissions.has('SPEAK')) return message.channel.send('I cannot speak in this voice channel, make sure I have the proper permissions!');
+		
+		console.log(args)
 
 		let results = await yt.search(args[0].replace(/<(.+)>/g, '$1'));
 		let song = {
