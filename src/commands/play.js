@@ -22,7 +22,6 @@ module.exports = {
 			id: results[0].id,
 			title: Util.escapeMarkdown(results[0].title),
 			url: results[0].url,
-			status: "Start playing"
 		};
 			
 		console.log(song);
@@ -46,6 +45,7 @@ module.exports = {
 		queueConstruct.songs.push(song);
 
 		const play = async song => {
+			let status = "Start playing"
 			const queue = message.client.queue.get(message.guild.id);
 			if (!song) {
 				queue.voiceChannel.leave();
@@ -61,9 +61,9 @@ module.exports = {
 				.on('error', error => {
 					queue.songs.shift();
 					play(queue.songs[0]);
-					song.status = "Error playing"
+					status = "Error playing"
 					console.error(error)});
-			queue.textChannel.send(`🎶 ${song.status}: **${song.title}**`);
+			queue.textChannel.send(`🎶 ${status}: **${song.title}**`);
 			dispatcher.setVolumeLogarithmic(queue.volume / 5);
 		};
 
