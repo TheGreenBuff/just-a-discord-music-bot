@@ -22,7 +22,7 @@ client.on('message', message => {
 	const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 	if (!command) {
 		if(commandName == 'info'){
-		const newEmbed = new Discord.MessageEmbed()
+		const newEmbed = newMessageEmbed()
 		.setColor('#304281')
 		.setTitle('Info')
 		.setDescription('Music bot AutismHQ!')
