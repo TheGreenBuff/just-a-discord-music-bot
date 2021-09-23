@@ -15,18 +15,14 @@ module.exports = {
 		if (!permissions.has('CONNECT')) return message.channel.send('I cannot connect to your voice channel, make sure I have the proper permissions!');
 		if (!permissions.has('SPEAK')) return message.channel.send('I cannot speak in this voice channel, make sure I have the proper permissions!');
 
-		let song = await yt.search(args[0].replace(/<(.+)>/g, '$1'), async function(err, results) {
-		  if(err) return console.log(err);
-		  console.dir(results[0].id);
-		  console.dir(results[0].link);
-		  console.dir(results[0].title);
-		  let song = {
-				id: results[0].id,
-				title: Util.escapeMarkdown(results[0].title),
-				url: results[0].url
-			};
+		let results = await yt.search(args[0].replace(/<(.+)>/g, '$1'));
+		let song = {
+			id: results[0].id,
+			title: Util.escapeMarkdown(results[0].title),
+			url: results[0].url
+		};
 			
-			console.log(song);
+		console.log(song);
 		const serverQueue = message.client.queue.get(message.guild.id);
 		
 		if (serverQueue) {
