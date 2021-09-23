@@ -20,7 +20,30 @@ client.on('message', message => {
 	const args = message.content.slice(client.config.prefix.length).split(/ +/);
 	const commandName = args.shift().toLowerCase();
 	const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
-	if (!command) return;
+	if (!command) {
+		if(args == 'info'){
+		const newEmbed = new Discord.MessageEmbed()
+		.setColor('#304281')
+		.setTitle('Info')
+		.setDescription('Music bot AutismHQ!')
+		.addFields(
+			{name: '!info', value: 'This command'},
+			{name: '!play', value: 'url or name of song'},
+			{name: '!np', value: 'shows current song playing'},
+			{name: '!skip', value: 'skips current song'},
+			{name: '!q or !queue', value: 'shows queue'},
+			{name: '!pause', value: 'pauses song'},
+			{name: '!resume', value: 'resumes song'},
+			{name: '!volume', value: 'changes general volume'},
+			{name: '!stop', value: 'Disconnects me'}
+		)
+		.setFooter(':)');
+		
+		message.channel.send(newEmbed);
+		}
+	} else {
+		return;
+	}
 	if (command.guildOnly && message.channel.type !== 'text') return message.reply('I can\'t execute that command inside DMs!');
 	if (command.args && !args.length) {
 		let reply = `You didn't provide any arguments, ${message.author}!`;
