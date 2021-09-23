@@ -1,5 +1,4 @@
 const { MessageEmbed } = require('discord.js');
-const desc = 'Music bot ' + process.env.SERVER_NAME
 const footer = 'by ' + process.env.DISCORD_NAME
 
 module.exports = {
@@ -7,6 +6,8 @@ module.exports = {
 	description: 'Info command.',
 	cooldown: 5,
 	execute(message) {
+		let {guild} = message;
+		const desc = 'Music bot ' + guild.name
 		const newEmbed = new MessageEmbed()
 		.setColor('#074d0e')
 		.setTitle('Info')
