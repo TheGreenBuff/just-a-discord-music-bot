@@ -1,6 +1,6 @@
 const { Util } = require('discord.js');
 const ytdl = require('ytdl-core');
-import * as yt from 'youtube-search-without-api-key';
+const search require('youtube-search-without-api-key');
 
 module.exports = {
 	name: 'play',
@@ -15,7 +15,7 @@ module.exports = {
 		if (!permissions.has('CONNECT')) return message.channel.send('I cannot connect to your voice channel, make sure I have the proper permissions!');
 		if (!permissions.has('SPEAK')) return message.channel.send('I cannot speak in this voice channel, make sure I have the proper permissions!');
 
-		let song = await yt.search(args[0].replace(/<(.+)>/g, '$1'), opts, async function(err, results) {
+		let song = await search(args[0].replace(/<(.+)>/g, '$1'), opts, async function(err, results) {
 		  if(err) return console.log(err);
 		  console.dir(results[0].id);
 		  console.dir(results[0].link);
