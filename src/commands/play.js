@@ -21,7 +21,8 @@ module.exports = {
 		let song = {
 			id: results[0].id,
 			title: Util.escapeMarkdown(results[0].title),
-			url: results[0].url
+			url: results[0].url,
+			status: "Start playing"
 		};
 			
 		console.log(song);
@@ -56,13 +57,13 @@ module.exports = {
 				.on('finish', () => {
 					queue.songs.shift();
 					play(queue.songs[0]);
-					queue.textChannel.send(`🎶 Start playing: **${song.title}**`);
 				})
 				.on('error', error => {
 					queue.songs.shift();
 					play(queue.songs[0]);
+					song.status = "Error playing"
 					console.error(error)});
-					queue.textChannel.send(`🎶 Error playing: **${song.title}**`);
+			queue.textChannel.send(`🎶 ${song.status}: **${song.title}**`);
 			dispatcher.setVolumeLogarithmic(queue.volume / 5);
 		};
 
