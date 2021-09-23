@@ -27,7 +27,7 @@ module.exports = {
 		  let song = {
 				id: results[0].id,
 				title: Util.escapeMarkdown(results[0].title),
-				url: results[0].link
+				url: "https://www.youtube.com/watch?v=K6BRna4_bmg"
 			};
 			
 			console.log(song);
