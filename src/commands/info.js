@@ -24,4 +24,5 @@ module.exports = {
 		.setFooter(':)');
 		
 		message.channel.send(newEmbed);
+		}
 };
