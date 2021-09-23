@@ -1,4 +1,6 @@
 const { MessageEmbed } = require('discord.js');
+const desc = 'Music bot ${process.env.SERVER_NAME}'
+const footer = 'by ${process.env.DISCORD_NAME}'
 
 module.exports = {
 	name: 'info',
@@ -8,7 +10,7 @@ module.exports = {
 		const newEmbed = new MessageEmbed()
 		.setColor('#074d0e')
 		.setTitle('Info')
-		.setDescription('Music bot ${process.env.SERVER_NAME}')
+		.setDescription(desc)
 		.addFields(
 			{name: '!info', value: 'This command'},
 			{name: '!play', value: 'Play a song'},
@@ -20,7 +22,7 @@ module.exports = {
 			{name: '!volume', value: 'Change volume'},
 			{name: '!stop', value: 'Disconnects the bot'}
 		)
-		.setFooter('by ${process.env.DISCORD_NAME}');
+		.setFooter(footer);
 
 		message.channel.send(newEmbed);
 	}
