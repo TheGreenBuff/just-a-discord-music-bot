@@ -8,7 +8,7 @@ module.exports = {
 		const newEmbed = new MessageEmbed()
 		.setColor('#074d0e')
 		.setTitle('Info')
-		.setDescription('Music bot AutismHQ!')
+		.setDescription('Music bot ${process.env.SERVER_NAME}')
 		.addFields(
 			{name: '!info', value: 'This command'},
 			{name: '!play', value: 'Play a song'},
@@ -20,7 +20,7 @@ module.exports = {
 			{name: '!volume', value: 'Change volume'},
 			{name: '!stop', value: 'Disconnects the bot'}
 		)
-		.setFooter('by TheGreenBuff');
+		.setFooter('by ${process.env.DISCORD_NAME}');
 
 		message.channel.send(newEmbed);
 	}
