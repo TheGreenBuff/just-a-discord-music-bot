@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'info',
-	description: 'Queue command.',
+	description: 'Info command.',
 	cooldown: 5,
 	execute(message) {
 		if(commandName == 'info'){
@@ -22,7 +22,7 @@ module.exports = {
 			{name: '!stop', value: 'Disconnects me'}
 		)
 		.setFooter(':)');
-		
-		message.channel.send(newEmbed);
 		}
+		message.channel.send(newEmbed);
+	}
 };
