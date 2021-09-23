@@ -1,6 +1,6 @@
 const { Util } = require('discord.js');
 const ytdl = require('ytdl-core');
-const search require('youtube-search-without-api-key');
+const search = require('youtube-search-without-api-key');
 
 module.exports = {
 	name: 'play',
