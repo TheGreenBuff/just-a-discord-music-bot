@@ -56,13 +56,14 @@ module.exports = {
 				.on('finish', () => {
 					queue.songs.shift();
 					play(queue.songs[0]);
+					queue.textChannel.send(`🎶 Start playing: **${song.title}**`);
 				})
 				.on('error', error => {
 					queue.songs.shift();
 					play(queue.songs[0]);
 					console.error(error)});
+					queue.textChannel.send(`🎶 Error playing: **${song.title}**`);
 			dispatcher.setVolumeLogarithmic(queue.volume / 5);
-			queue.textChannel.send(`🎶 Start playing: **${song.title}**`);
 		};
 
 		try {
