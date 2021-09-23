@@ -15,7 +15,7 @@ module.exports = {
 		if (!permissions.has('CONNECT')) return message.channel.send('I cannot connect to your voice channel, make sure I have the proper permissions!');
 		if (!permissions.has('SPEAK')) return message.channel.send('I cannot speak in this voice channel, make sure I have the proper permissions!');
 		
-		searchQ = args.toString().replace(/,/g, ' ');
+		searchQ = args.toString().replace(/,/g, '+');
 		console.log(searchQ)
 		let results = await yt.search(searchQ);
 		let song = {
