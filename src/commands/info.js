@@ -17,6 +17,7 @@ module.exports = {
 			{name: '!resume', value: 'resumes song'},
 			{name: '!volume', value: 'changes general volume'},
 			{name: '!stop', value: 'Disconnects me'}
+		)
 		.setFooter(':)');
 		
 		message.channel.send(newEmbed);
