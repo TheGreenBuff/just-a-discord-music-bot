@@ -12,7 +12,7 @@
 	"dependencies": {
 		"discord.js": "^12.3.1",
 		"dotenv": "^8.2.0",
-		"youtube-search-without-api-key": "^1.0.6",
+		"youtube-search-without-api-key":"^1.0.6",
 		"ytdl-core": "^4.4.0"
 
 	},
