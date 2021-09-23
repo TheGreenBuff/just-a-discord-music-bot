@@ -5,7 +5,6 @@ module.exports = {
 	description: 'Info command.',
 	cooldown: 5,
 	execute(message) {
-		if(commandName == 'info'){
 		const newEmbed = new MessageEmbed()
 		.setColor('#304281')
 		.setTitle('Info')
@@ -22,7 +21,7 @@ module.exports = {
 			{name: '!stop', value: 'Disconnects me'}
 		)
 		.setFooter(':)');
-		}
+
 		message.channel.send(newEmbed);
 	}
 };
