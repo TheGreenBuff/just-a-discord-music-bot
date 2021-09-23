@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
-const desc = 'Music bot ${process.env.SERVER_NAME}'
-const footer = 'by ${process.env.DISCORD_NAME}'
+const desc = 'Music bot ' + process.env.SERVER_NAME
+const footer = 'by ' + process.env.DISCORD_NAME
 
 module.exports = {
 	name: 'info',
