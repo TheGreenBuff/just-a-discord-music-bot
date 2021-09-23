@@ -45,7 +45,6 @@ module.exports = {
 		queueConstruct.songs.push(song);
 
 		const play = async song => {
-			var status = "Start playing"
 			const queue = message.client.queue.get(message.guild.id);
 			if (!song) {
 				queue.voiceChannel.leave();
@@ -59,12 +58,11 @@ module.exports = {
 					play(queue.songs[0]);
 				})
 				.on('error', error => {
+					queue.textChannel.send(`🎶 Error playing: **${song.title}**`);
 					queue.songs.shift();
 					play(queue.songs[0]);
-					var status = "Error playing"
-					queue.textChannel.send(`🎶 ${status}: **${song.title}**`);
 					console.error(error)});
-			queue.textChannel.send(`🎶 ${status}: **${song.title}**`);
+			queue.textChannel.send(`🎶 Start playing: **${song.title}**`);
 			dispatcher.setVolumeLogarithmic(queue.volume / 5);
 		};
 
