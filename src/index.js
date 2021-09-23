@@ -21,7 +21,7 @@ client.on('message', message => {
 	const commandName = args.shift().toLowerCase();
 	const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 	if (!command) {
-		if(args == 'info'){
+		if(commandName == 'info'){
 		const newEmbed = new Discord.MessageEmbed()
 		.setColor('#304281')
 		.setTitle('Info')
@@ -40,6 +40,7 @@ client.on('message', message => {
 		.setFooter(':)');
 		
 		message.channel.send(newEmbed);
+		return;
 		}
 	} else {
 		return;
