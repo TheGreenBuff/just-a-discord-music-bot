@@ -6,21 +6,21 @@ module.exports = {
 	cooldown: 5,
 	execute(message) {
 		const newEmbed = new MessageEmbed()
-		.setColor('#304281')
+		.setColor('#074d0e')
 		.setTitle('Info')
 		.setDescription('Music bot AutismHQ!')
 		.addFields(
 			{name: '!info', value: 'This command'},
-			{name: '!play', value: 'url or name of song'},
-			{name: '!np', value: 'shows current song playing'},
-			{name: '!skip', value: 'skips current song'},
-			{name: '!q or !queue', value: 'shows queue'},
-			{name: '!pause', value: 'pauses song'},
-			{name: '!resume', value: 'resumes song'},
-			{name: '!volume', value: 'changes general volume'},
-			{name: '!stop', value: 'Disconnects me'}
+			{name: '!play', value: 'Play a song'},
+			{name: '!np', value: 'Current song'},
+			{name: '!skip', value: 'Skip current song'},
+			{name: '!q or !queue', value: 'Show Queue'},
+			{name: '!pause', value: 'Pause current song'},
+			{name: '!resume', value: 'Resume current song'},
+			{name: '!volume', value: 'Change volume'},
+			{name: '!stop', value: 'Disconnects the bot'}
 		)
-		.setFooter(':)');
+		.setFooter('by TheGreenBuff');
 
 		message.channel.send(newEmbed);
 	}
