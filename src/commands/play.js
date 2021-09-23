@@ -62,6 +62,7 @@ module.exports = {
 					queue.songs.shift();
 					play(queue.songs[0]);
 					var status = "Error playing"
+					queue.textChannel.send(`🎶 ${status}: **${song.title}**`);
 					console.error(error)});
 			queue.textChannel.send(`🎶 ${status}: **${song.title}**`);
 			dispatcher.setVolumeLogarithmic(queue.volume / 5);
